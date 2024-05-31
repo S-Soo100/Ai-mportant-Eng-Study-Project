@@ -8,12 +8,14 @@ import { parseTestNumber } from "@/utils/parseTestNumber";
 import { parseQuestionType } from "@/utils/parseQuestionType";
 import { useRecoilValue } from "recoil";
 import { allQuestionAtom } from "@/recoil/all-question-atom";
+import HomeButton from "./(result)/HomeButton";
 
 type IProps = {
   loading: boolean;
   data: Question[] | null;
   setSelectedItem: (item: Question) => void;
   selectedItem: Question | null;
+  goToHome: () => void;
 };
 
 export default function ViewTeacherPage({
@@ -21,15 +23,18 @@ export default function ViewTeacherPage({
   data,
   setSelectedItem,
   selectedItem,
+  goToHome,
 }: IProps) {
   return (
-    <div>
-      <p>footer</p>
+    <>
       <div className="flex h-screen bg-gray-300 text-gray-800 font-sans">
         <div
           id="Sidebar"
-          className="max-w-[300px] w-[50%] bg-gray-800 text-white border-r border-gray-200 p-4 overflow-y-auto"
+          className="max-w-[300px] w-[50%] bg-slate-800 text-white border-r border-gray-200 p-4 overflow-y-auto"
         >
+          <div className="p-2">
+            <HomeButton onClick={goToHome} />
+          </div>
           <h1 className="text-2xl mb-4 p-2 text-center font-semibold">
             문제 목록
           </h1>
@@ -105,6 +110,6 @@ export default function ViewTeacherPage({
         </div>
         {loading ? <Loader loading={loading} /> : <div></div>}
       </div>
-    </div>
+    </>
   );
 }
