@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import team1 from "../../../public/team-1.png";
+import team1 from "../../../public/team-2.png";
 
 export default function TeamPage() {
   return (
