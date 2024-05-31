@@ -45,13 +45,13 @@ export default function ViewTeacherPage({
               <div
                 key={item.id}
                 onClick={() => setSelectedItem(item)}
-                className={`max-w-[300px] p-2 border-b border-gray-200 w-full text-ellipsis cursor-pointer hover:bg-gray-100 ${
+                className={`p-2 border-b border-gray-200 w-full text-ellipsis cursor-pointer hover:bg-gray-600 ${
                   selectedItem && selectedItem.id === item.id
-                    ? "bg-gray-200"
+                    ? "bg-slate-300 text-gray-900"
                     : ""
                 }`}
               >
-                {item.id + " : " + item.question}
+                {item.id + " : " + parseTestNumber(item.testNumber)}
               </div>
             ))
           )}

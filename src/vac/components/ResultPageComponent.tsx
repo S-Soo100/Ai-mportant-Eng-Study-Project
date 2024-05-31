@@ -8,10 +8,8 @@ import {
   storedQuestionSelector,
 } from "@/recoil/stored-question-atom";
 import { initRecommendQuestion } from "@/service/initRecommendQuestion";
-import { useUpdateRecommendQuestionsArray } from "@/hook/useUpdateRecommendQuestion";
 import { StoredQuestion } from "@/type/StoredQuestion";
 import { recommendQuestionAtom } from "@/recoil/recommend-question-atom";
-import { demo1 } from "@/demo/demo";
 import { demoResult } from "@/demo/demoResult";
 
 const ResultPageComponent = () => {
@@ -21,7 +19,6 @@ const ResultPageComponent = () => {
   const router = useRouter();
   const [stored, setStored] = useRecoilState(storedQuestionAtom);
   const [recommend, setRecommend] = useRecoilState(recommendQuestionAtom);
-  const updateRecommendQuestionsArray = useUpdateRecommendQuestionsArray();
 
   const props = {
     goToHomePage: () => goToHome(),
