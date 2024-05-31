@@ -7,20 +7,28 @@ import Icon from "@/icons/Icon";
 import { useRouter } from "next/navigation";
 import { questionAtom } from "@/recoil/question-atom";
 import { initMainQuestion } from "@/service/initMainQuestion";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import Loader from "./Loader";
 import { Question } from "@/type/Question";
 import { useUpdateStoredQuestionsArray } from "@/hook/useUpdateStoredQuestion";
 import { StoredQuestion } from "@/type/StoredQuestion";
+import TeacherModal from "./(main)/(modal)/TeacherModal";
+import FloatingActionButton from "./(main)/FloatingActionButton";
+import { allQuestionAtom } from "@/recoil/all-question-atom";
+import { initAllQuestion } from "@/service/initAllQuestion";
 
 export default function ViewMainHomePage() {
   const updateStoredQuestionsArray = useUpdateStoredQuestionsArray();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isTeacherModalOpen, setIsTeacherModalOpen] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const allQustionSetter = useSetRecoilState(allQuestionAtom);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const openTeacherModal = () => setIsTeacherModalOpen(true);
+  const closeTeacherModal = () => setIsTeacherModalOpen(false);
 
   function atomSetter(val: StoredQuestion[]) {
     updateStoredQuestionsArray(val);
@@ -35,9 +43,25 @@ export default function ViewMainHomePage() {
     }, 1500);
   };
 
+  const goToTeacherPage = async () => {
+    setLoading(true);
+    initAllQuestion({ setter: allQustionSetter });
+    const timer = setTimeout(() => {
+      setLoading(false);
+      router.push("/teacher");
+    }, 1500);
+  };
+
   const handleLogin = async (email: string, password: string) => {
     try {
       goToQustionPage();
+    } catch (error) {
+      return (error as Error).message;
+    }
+  };
+  const handleTeacherLogin = async (email: string, password: string) => {
+    try {
+      goToTeacherPage();
     } catch (error) {
       return (error as Error).message;
     }
@@ -80,10 +104,19 @@ export default function ViewMainHomePage() {
           <Image src={profilePic} alt="Profile Picture" />
         </div>
       </section>
+      <FloatingActionButton
+        onClick={openTeacherModal}
+        children={<div>T</div>}
+      />
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
         handleLogin={handleLogin}
+      />
+      <TeacherModal
+        isOpen={isTeacherModalOpen}
+        onClose={closeTeacherModal}
+        handleLogin={handleTeacherLogin}
       />
       {loading ? <Loader loading={loading} /> : <div></div>}
     </main>

@@ -3,22 +3,10 @@ import axios, { AxiosRequestConfig } from "axios";
 
 const BASE_URL = process.env.NEXT_PUBLIC_AITUTOR_BACKEND_PRODUCT_SERVER;
 
-type IProps = {
-  questionType: number;
-  solvedQuestions: string;
-  length: number;
-  testType: number;
-};
-
-export const getQuestion = async ({
-  questionType,
-  solvedQuestions,
-  length,
-  testType,
-}: IProps): Promise<Question[] | null> => {
+export const getAllQuestion = async (): Promise<Question[] | null> => {
   axios.defaults.baseURL = "";
   const axiosOption: AxiosRequestConfig = {
-    url: `${BASE_URL}question/random?questionType=${questionType}&solvedQuestions=${solvedQuestions}&length=${length}&testType=${testType}`,
+    url: `${BASE_URL}question`,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -28,8 +16,6 @@ export const getQuestion = async ({
   const res = await axios
     .request(axiosOption)
     .then((response) => {
-      // console.log(questionType + "번째 호출");
-      // console.log(response.data.data);
       return response.data.data;
     })
     .catch((error) => console.log(`ERROR IS : ${error.message}`));

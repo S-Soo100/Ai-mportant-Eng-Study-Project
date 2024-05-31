@@ -1,6 +1,5 @@
 import { Question } from "@/type/Question";
 import axios, { AxiosRequestConfig } from "axios";
-import { setBaseUrls } from "./html";
 import { StoredQuestion } from "@/type/StoredQuestion";
 
 const BASE_URL = process.env.NEXT_PUBLIC_AITUTOR_BACKEND_PRODUCT_SERVER;
@@ -18,8 +17,7 @@ export const getStoredQuestion = async ({
   length,
   testType,
 }: IProps): Promise<StoredQuestion[] | null> => {
-  setBaseUrls();
-  // console.log(`getQuestion ${questionType}`);
+  axios.defaults.baseURL = "";
   const axiosOption: AxiosRequestConfig = {
     url: `${BASE_URL}question/random?questionType=${questionType}&solvedQuestions=${solvedQuestions}&length=${length}&testType=${testType}`,
     method: "GET",
