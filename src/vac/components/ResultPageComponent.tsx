@@ -67,7 +67,7 @@ const ResultPageComponent = () => {
 
   useEffect(() => {
     // setRecommend(demoResult);
-    if (recommend.length < 1 && statistics.incorrectNotes.length > 0) {
+    if (recommend.length > 1 && statistics.incorrectNotes.length > 0) {
       initRecommendQuestion({
         incorrectNotes: statistics.incorrectNotes,
         setStoredAtom: atomSetter,
