@@ -104,10 +104,9 @@ export default function ViewMainHomePage() {
           <Image src={profilePic} alt="Profile Picture" />
         </div>
       </section>
-      <FloatingActionButton
-        onClick={openTeacherModal}
-        children={<div>T</div>}
-      />
+      <FloatingActionButton onClick={openTeacherModal}>
+        {<div>T</div>}
+      </FloatingActionButton>
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}

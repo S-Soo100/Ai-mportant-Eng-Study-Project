@@ -22,7 +22,7 @@ export default function TeacherPageComponent() {
       setData(allQuestion);
       setLoading(false);
     }, 2000);
-  }, []);
+  }, [allQuestion]);
 
   return (
     <>
