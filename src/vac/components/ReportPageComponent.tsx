@@ -1,6 +1,5 @@
 "use client";
-import { useRecoilState, useRecoilValue } from "recoil";
-import ViewResultPage from "../view/ViewResultPage";
+import { useRecoilValue } from "recoil";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -10,7 +9,6 @@ import {
 import ViewReportPage from "../view/ViewReportPage";
 import { StoredQuestion } from "@/type/StoredQuestion";
 import useCalculateResults from "@/hook/useCalculateResults";
-import { demoResult } from "@/demo/demoResult";
 
 export default function ReportPageComponent() {
   const router = useRouter();

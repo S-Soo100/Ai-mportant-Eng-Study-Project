@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 
 export default function ReviewPage() {
   const router = useRouter();
-  const params: { id: string } | null = useParams();
+  const params: { id: string } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [question, setQuestion] = useState<StoredQuestion | null>(null);
   const [stored, setStored] = useRecoilState(storedQuestionAtom);

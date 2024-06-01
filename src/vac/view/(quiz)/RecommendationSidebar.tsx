@@ -1,5 +1,5 @@
 "use client";
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Question } from "@/type/Question";
 

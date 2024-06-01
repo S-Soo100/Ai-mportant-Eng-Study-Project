@@ -1,5 +1,4 @@
 "use client";
-// VCounter.tsx
 import styled from "@emotion/styled";
 
 interface Props {

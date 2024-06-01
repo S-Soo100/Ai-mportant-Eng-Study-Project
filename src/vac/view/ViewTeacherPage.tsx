@@ -1,13 +1,9 @@
 "use client";
-import { demo1 } from "@/demo/demo";
-import { demoResult } from "@/demo/demoResult";
 import { Question } from "@/type/Question";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Loader from "./Loader";
 import { parseTestNumber } from "@/utils/parseTestNumber";
 import { parseQuestionType } from "@/utils/parseQuestionType";
-import { useRecoilValue } from "recoil";
-import { allQuestionAtom } from "@/recoil/all-question-atom";
 import HomeButton from "./(result)/HomeButton";
 
 type IProps = {

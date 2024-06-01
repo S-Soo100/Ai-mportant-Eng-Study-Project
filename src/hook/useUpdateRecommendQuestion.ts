@@ -1,6 +1,6 @@
 import { recommendQuestionAtom } from "@/recoil/recommend-question-atom";
 import { StoredQuestion } from "@/type/StoredQuestion";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 export const useUpdateRecommendQuestions = () => {
   const [rec, setRec] = useRecoilState(recommendQuestionAtom);

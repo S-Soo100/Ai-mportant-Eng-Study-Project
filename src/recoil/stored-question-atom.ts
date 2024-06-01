@@ -1,4 +1,3 @@
-import { IncorrectNote } from "@/type/IncorrectNote";
 import { StoredQuestion } from "@/type/StoredQuestion";
 import { atom, selector } from "recoil";
 export const storedQuestionAtom = atom<StoredQuestion[]>({

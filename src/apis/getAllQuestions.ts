@@ -4,8 +4,8 @@ import axios, { AxiosRequestConfig } from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_AITUTOR_BACKEND_PRODUCT_SERVER;
 
 export const getAllQuestion = async (): Promise<Question[] | null> => {
-  axios.defaults.baseURL = "";
   const axiosOption: AxiosRequestConfig = {
+    baseURL: "",
     url: `${BASE_URL}question`,
     method: "GET",
     headers: {

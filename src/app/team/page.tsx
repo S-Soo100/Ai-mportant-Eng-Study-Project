@@ -1,15 +1,22 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import team1 from "../../../public/team-2.png";
+import { useRouter } from "next/navigation";
+import HomeButton from "@/vac/view/(result)/HomeButton";
 
 export default function TeamPage() {
+  const router = useRouter();
   return (
-    <main className="bg-white pt-12 max-w-[1400px] mx-auto h-[100dvh]">
-      <section
-        id="AppBar"
-        className="px-4 shadow-md w-[92%] bg-white mb-8 h-[50px] rounded-full justify-between items-center flex flex-row mx-auto"
-      >
-        구성원
+    <main className="bg-white pt-2 max-w-[1400px] mx-auto h-[100dvh]">
+      <section id="AppBar" className="m-2 px-3">
+        {/* <div className="p-2"> */}
+        <HomeButton
+          onClick={() => {
+            router.back();
+          }}
+        />
+        {/* </div> */}
       </section>
       <Image src={team1} alt="TeamImage" />
     </main>

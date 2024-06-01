@@ -37,9 +37,7 @@ const Option = styled.button<OptionProps>`
 const OptionDisplay = ({
   options: answers,
   selectedChoice,
-  isSelected,
   handleClick,
-  handleNextQuestion,
 }: IProps) => {
   return (
     <AnswerContainer>

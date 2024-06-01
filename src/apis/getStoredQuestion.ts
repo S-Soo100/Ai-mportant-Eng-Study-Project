@@ -1,4 +1,3 @@
-import { Question } from "@/type/Question";
 import axios, { AxiosRequestConfig } from "axios";
 import { StoredQuestion } from "@/type/StoredQuestion";
 
@@ -17,8 +16,8 @@ export const getStoredQuestion = async ({
   length,
   testType,
 }: IProps): Promise<StoredQuestion[] | null> => {
-  axios.defaults.baseURL = "";
   const axiosOption: AxiosRequestConfig = {
+    baseURL: "",
     url: `${BASE_URL}question/random?questionType=${questionType}&solvedQuestions=${solvedQuestions}&length=${length}&testType=${testType}`,
     method: "GET",
     headers: {

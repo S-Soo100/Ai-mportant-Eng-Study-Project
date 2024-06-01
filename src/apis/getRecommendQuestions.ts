@@ -17,11 +17,8 @@ export const getRecommendQuestion = async ({
   length,
   testType,
 }: IProps): Promise<StoredQuestion[] | null> => {
-  axios.defaults.baseURL = "";
-  console.log(
-    `${BASE_URL}question/random?questionType=${questionType}&solvedQuestions=${solvedQuestions}&length=${length}&testType=${testType}`
-  );
   const axiosOption: AxiosRequestConfig = {
+    baseURL: "",
     url: `${BASE_URL}question/random?questionType=${questionType}&solvedQuestions=${solvedQuestions}&length=${length}&testType=${testType}`,
     method: "GET",
     headers: {
@@ -32,8 +29,6 @@ export const getRecommendQuestion = async ({
   const res = await axios
     .request(axiosOption)
     .then((response) => {
-      // console.log(questionType + "번째 호출");
-      // console.log(response.data.data);
       return response.data.data;
     })
     .catch((error) => console.log(`ERROR IS : ${error.message}`));

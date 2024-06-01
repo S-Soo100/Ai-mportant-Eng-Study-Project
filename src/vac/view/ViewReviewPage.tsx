@@ -1,11 +1,9 @@
 "use client";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import QuestionDisplay from "./(quiz)/QuestionDisplay";
 import OptionDisplay from "./(quiz)/OptionDisplay";
-import RecommendationSidebar from "./(quiz)/RecommendationSidebar";
 import FeedbackDisplay from "./(quiz)/FeedbackDisplay";
-import { demo1 } from "@/demo/demo";
 import { Question } from "@/type/Question";
 import Loader from "./Loader";
 import { useParams, useRouter } from "next/navigation";
@@ -67,7 +65,7 @@ export default function ViewReviewPage({
   handleYes,
   closeModal,
 }: Props) {
-  const params: { type: string } | null = useParams();
+  const params: { type: string } = useParams();
   const router = useRouter();
 
   const getAnswerOptions = (data: string) => {

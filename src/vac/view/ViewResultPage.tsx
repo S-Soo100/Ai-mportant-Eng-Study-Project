@@ -1,5 +1,4 @@
 "use client";
-import styled from "@emotion/styled";
 import HomeButton from "./(result)/HomeButton";
 import Loader from "./Loader";
 import { StoredQuestion } from "@/type/StoredQuestion";

@@ -112,6 +112,7 @@ const useCalculateResults = () => {
       };
 
       setResult(calculatedResult);
+
       return calculatedResult;
     },
     []

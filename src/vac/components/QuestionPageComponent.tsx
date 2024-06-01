@@ -2,18 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ViewQuestionPage from "../view/ViewQuestionPage";
 import { useParams, useRouter } from "next/navigation";
-import { Question } from "@/type/Question";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { questionAtom } from "@/recoil/question-atom";
-import { answerRateAtom } from "@/recoil/answer-rate-atom";
-import { demo1 } from "@/demo/demo";
-import { setRecommendQuestionByNumber } from "@/service/getRecommendQuestionByNumber";
-import {
-  recommend1Atom,
-  recommend2Atom,
-  recommend3Atom,
-  recommend4Atom,
-} from "@/recoil/recommend-atom";
+import { useRecoilState } from "recoil";
 import { storedQuestionAtom } from "@/recoil/stored-question-atom";
 import { goToNextQuiz } from "@/utils/goToNextQuiz";
 import { StoredQuestion } from "@/type/StoredQuestion";
@@ -22,7 +11,7 @@ import { useUpdateStoredQuestions } from "@/hook/useUpdateStoredQuestion";
 export default function QuestionPageComponent() {
   const updateStoredQuestions = useUpdateStoredQuestions();
   const router = useRouter();
-  const params: { type: string } | null = useParams();
+  const params: { type: string } = useParams();
   // const atom = useRecoilValue(questionAtom);
   const [storedQuestion, setStoredQuestion] =
     useRecoilState(storedQuestionAtom);
